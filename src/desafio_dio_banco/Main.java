@@ -2,18 +2,23 @@ package desafio_dio_banco;
 
 public class Main {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	Conta cc = new ContaCorrente();
-	cc.depositar(100);
-	
-	Conta poupanca = new ContaPoupanca();
+		Cliente vitor = new Cliente();
+		vitor.setNome("Vitor");
+		vitor.setCpf("457894561254");
 
-	cc.transferir(100, poupanca);
-	
-	cc.imprimirExtrato();
-	poupanca.imprimirExtrato();
+		vitor.setEndereco("Rua oito");
 
-    }
+		Conta cc = new ContaCorrente(vitor);
+		Conta poupanca = new ContaPoupanca(vitor);
+
+		cc.depositar(100);
+		cc.transferir(100, poupanca);
+
+		cc.imprimirExtrato();
+		poupanca.imprimirExtrato();
+
+	}
 
 }
